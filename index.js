@@ -13,12 +13,13 @@ const PROXY_USERNAME = process.env.PROXY_USERNAME;
 const PROXY_PASSWORD = process.env.PROXY_PASSWORD;
 const TMDB_TOKEN = process.env.TMDB_TOKEN;
 const TMDB_API_KEY = process.env.TMDB_API_KEY;
+const CORS_ORIGIN = process.env.CORS_ORIGIN;
 
 const nodeEnv = process.env.NODE_ENV || "development";
 const isProd = nodeEnv === "production";
 
 // Enable CORS for all origins (adjust as needed for production)
-app.use(cors());
+app.use(cors({ origin: CORS_ORIGIN }));
 
 // Enable helmet for additional security measures
 app.use(helmet());
